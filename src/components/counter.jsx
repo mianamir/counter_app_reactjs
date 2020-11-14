@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 class Counter extends Component {
   state = {
-    count: 1,
+    count: 0,
     image_url: "https://picsum.photos/200",
     tags: [],
   };
@@ -10,6 +10,18 @@ class Counter extends Component {
     fontSize: 12,
     fontWeight: "bold",
   };
+
+  // constructor() {
+  //   // Use to bind the event handlers with this
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // } // constructor ends
+
+  // 2nd way: use arrow func,
+  // to bind the event handlers with this
+  handleIncrement = () => {
+    console.log("Increment Clicked!", this);
+  }; // handleIncrement ends
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
@@ -22,18 +34,24 @@ class Counter extends Component {
         ))}
       </ul>
     );
-  }
+  } // renderTags ends
 
   render() {
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increement</button>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increement
+        </button>
         <br />
         {/* In JS when we use boolean logical operator 
         && / || / ! operators then concatinating
         boolean with string will rsult in string 
         becuase this will be truthy statement
+
         */}
         {this.state.tags.length === 0 && "Would you please a new tag!"}
         {this.renderTags()};
