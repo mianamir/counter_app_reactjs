@@ -20,7 +20,9 @@ class Counter extends Component {
   // 2nd way: use arrow func,
   // to bind the event handlers with this
   handleIncrement = () => {
-    console.log("Increment Clicked!", this);
+    // console.log("Increment Clicked!", this);
+    // Update the count
+    this.setState({ count: this.state.count + 1 });
   }; // handleIncrement ends
 
   renderTags() {
