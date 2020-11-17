@@ -19,11 +19,21 @@ class Counter extends Component {
 
   // 2nd way: use arrow func,
   // to bind the event handlers with this
-  handleIncrement = () => {
+  handleIncrement = (product) => {
     // console.log("Increment Clicked!", this);
+
     // Update the count
+    // setSate is async call and render the return
+    // And update the New DOM while matching the old DOM
+
+    console.log(product);
+
     this.setState({ count: this.state.count + 1 });
   }; // handleIncrement ends
+
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
+  };
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
@@ -43,7 +53,7 @@ class Counter extends Component {
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement(product)}
           className="btn btn-secondary btn-sm"
         >
           Increement
