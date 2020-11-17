@@ -1,3 +1,16 @@
+{
+  /**
+
+  Modules
+  JSX expressions
+  Rneding Lists
+  Conditional Rendering
+  Handling Events
+  Updating the State
+
+**/
+}
+
 import React, { Component } from "react";
 class Counter extends Component {
   state = {
